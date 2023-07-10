@@ -30,15 +30,15 @@ y2 = np.multiply(np.power(np.sqrt(2 * np.pi) * sigma2, -1), np.exp(-np.power(x -
 plt.rcParams["font.family"] = ["sans-serif"]
 plt.rcParams["font.sans-serif"] = ['SimHei']
 
-plt.plot([0.5,0.5],[0,cx(0.5)])
-plt.plot([2.5,2.5],[0,cx(2.5)])
-plt.plot([0,0],[0,cx(0.)])
-plt.plot([3,3],[0,cx(3.)])
+plt.plot([0.5,0.5],[0,cx(0.5,u2,sigma2)])
+plt.plot([2.5,2.5],[0,cx(2.5,u2,sigma2)])
+plt.plot([0,0],[0,cx(0.,u2,sigma2)])
+plt.plot([3,3],[0,cx(3.,u2,sigma2)])
          
 for i in range(0,50):
-    plt.plot([i/100,i/100],[0,cx(i/100)],color="b")
+    plt.plot([i/100,i/100],[0,cx(i/100,u2,sigma2)],color="b")
 for i in range(250,300):
-    plt.plot([i/100,i/100],[0,cx(i/100)],color="b")
+    plt.plot([i/100,i/100],[0,cx(i/100,u2,sigma2)],color="b")
 # 加标题
 # plt.ylabel('行业')
 # plt.xlabel('倍率')
@@ -49,24 +49,39 @@ plt.yticks(np.arange(0, 0.5, 0.1))
 plt.plot(x, y2, 'r-', linewidth=2)
 plt.savefig("1.jpg")
 '''
+
 # 图2
-# u2 = 2  
-# sigma2 = 1  
-# x = np.arange(-1, 5, 0.1)
-# y2 = np.multiply(np.power(np.sqrt(2 * np.pi) * sigma2, -1), np.exp(-np.power(x - u2, 2) / 2 * sigma2 ** 2))
+u2 = 1 
+sigma2 = 1  
+x = np.arange(-2, 5, 0.1)
+y2 = np.multiply(np.power(np.sqrt(2 * np.pi) * sigma2, -1), np.exp(-np.power(x - u2, 2) / 2 * sigma2 ** 2))
+plt.plot([1,1],[0,cx(1,u2,sigma2)],c='b',linestyle='--')
+plt.xlim((-2,6))
+plt.ylim((0,0.5))
+plt.xticks(np.arange(-2, 6, 1))
+plt.yticks(np.arange(0, 0.5, 0.1))
+# plt.ylabel('服务/行业')
+# plt.xlabel('倍率')
+plt.plot(x, y2, 'r-', linewidth=2)
+plt.savefig("2.jpg")
 
-# plt.plot([2,2],[0,cx(2)],c='b',linestyle='--')
-# plt.xlim((-1,5))
-# plt.ylim((0,0.5))
-# plt.xticks(np.arange(-1, 6, 1))
-# plt.yticks(np.arange(0, 0.5, 0.1))
+u2 = 2  
+sigma2 = 1  
+x = np.arange(-2, 5, 0.1)
+y2 = np.multiply(np.power(np.sqrt(2 * np.pi) * sigma2, -1), np.exp(-np.power(x - u2, 2) / 2 * sigma2 ** 2))
 
-# # plt.ylabel('服务/行业')
-# # plt.xlabel('倍率')
-# plt.plot(x, y2, 'r-', linewidth=2)
-# plt.savefig("3.jpg")
+plt.plot([2,2],[0,cx(2,u2,sigma2)],c='b',linestyle='--')
+plt.xlim((-2,6))
+plt.ylim((0,0.5))
+plt.xticks(np.arange(-2, 6, 1))
+plt.yticks(np.arange(0, 0.5, 0.1))
+# plt.ylabel('服务/行业')
+# plt.xlabel('倍率')
+plt.plot(x, y2, 'r-', linewidth=2)
+plt.savefig("3.jpg")
 
 # 图3
+'''
 u1 = 1  
 sigma1 = 1  
 x1 = np.arange(-2, 5, 0.1)
@@ -131,3 +146,4 @@ plt.xticks(np.arange(-2, 6, 1))
 plt.yticks(np.arange(0, 0.5, 0.1))
 plt.plot(x1, y1, c='m', linewidth=2)
 plt.savefig("8.jpg")
+'''
